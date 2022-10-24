@@ -1,0 +1,137 @@
+{
+  "ref": {
+    "140": {
+      "value": "140%",
+      "type": "lineHeights"
+    },
+    "150": {
+      "value": "150%",
+      "type": "lineHeights"
+    },
+    "160": {
+      "value": "160%",
+      "type": "lineHeights"
+    },
+    "notosans": {
+      "value": "Noto Sans CJK KR",
+      "type": "fontFamilies"
+    },
+    "regular": {
+      "value": "Regular",
+      "type": "fontWeights"
+    },
+    "bold": {
+      "value": "Bold",
+      "type": "fontWeights"
+    },
+    "heading": {
+      "font_size_m": {
+        "value": 11.25,
+        "type": "fontSizes"
+      },
+      "font_size_l": {
+        "value": 12.656,
+        "type": "fontSizes"
+      },
+      "font_size_xl": {
+        "value": 20.25,
+        "type": "fontSizes"
+      },
+      "font_size_xxl": {
+        "value": 22.5,
+        "type": "fontSizes"
+      },
+      "font_size_xxxl": {
+        "value": 27,
+        "type": "fontSizes"
+      }
+    },
+    "body": {
+      "font_size_s": {
+        "value": 14,
+        "type": "fontSizes"
+      },
+      "font_size_m": {
+        "value": 16,
+        "type": "fontSizes"
+      },
+      "font_size_l": {
+        "value": 18,
+        "type": "fontSizes"
+      },
+      "font_size_xl": {
+        "value": 20,
+        "type": "fontSizes"
+      },
+      "font_size_xxl": {
+        "value": 22,
+        "type": "fontSizes"
+      },
+      "font_size_xxxl": {
+        "value": 24,
+        "type": "fontSizes"
+      }
+    },
+    "detail": {
+      "font_size_xs": {
+        "value": 12,
+        "type": "fontSizes"
+      },
+      "font_size_s": {
+        "value": 14,
+        "type": "fontSizes"
+      },
+      "font_size_m": {
+        "value": 16,
+        "type": "fontSizes"
+      },
+      "font_size_l": {
+        "value": 18,
+        "type": "fontSizes"
+      },
+      "font_size_xl": {
+        "value": 20,
+        "type": "fontSizes"
+      }
+    },
+    "font_defult": {
+      "value": 10,
+      "type": "fontSizes"
+    }
+  },
+  "sys": {
+    "heading": {
+      "font_size_xxxl": {
+        "value": {
+          "fontFamily": "Noto Sans CJK KR",
+          "fontWeight": "Bold",
+          "lineHeight": "140%",
+          "fontSize": 27
+        },
+        "type": "typography"
+      },
+      "font_size_xl": {
+        "value": {
+          "fontFamily": "Noto Sans CJK KR",
+          "fontWeight": "Bold",
+          "lineHeight": "140%",
+          "fontSize": 20.25
+        },
+        "type": "typography"
+      },
+      "font_size_l": {
+        "value": {
+          "fontFamily": "Noto Sans CJK KR",
+          "fontWeight": "Bold",
+          "lineHeight": "140%",
+          "fontSize": 12.656
+        },
+        "type": "typography"
+      }
+    }
+  },
+  "font_scale": {
+    "value": 1.125,
+    "type": "sizing"
+  }
+}

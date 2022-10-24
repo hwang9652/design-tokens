@@ -1,0 +1,22 @@
+{
+  "name": "style-dictionary-auto-rebuild-watcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "properties"
+  ],
+  "scripts": {
+      "build-transform-color": "npx token-transformer data/tokens.json tokens/color.json color",
+      "build-transform-size": "npx token-transformer data/tokens.json tokens/size.json size",
+      "build-transform": "npm run build-transform-color && npm run build-transform-size",
+      "build-sd": "node build.js",
+      "build": "npm run build-transform && npm run build-sd"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "style-dictionary": "3.7.1"
+  }
+}
