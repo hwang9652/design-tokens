@@ -32,23 +32,22 @@ StyleDictionaryPackage.registerFormat({
   name: 'android/resources',
   // name: 'css/variables',
   formatter (dictionary) {
-    return dictionary.allProperties.map(prop => {
+    return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
       if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          objectArray.push(`<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value}</string>`);
+          objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value}</string>`);
         }
         return objectArray.map(p => {
           return p
         }).join('\n');
       } else {
-        return `<string name="${prop.name}">${prop.value}</string>`
+        return `\t<string name="${prop.name}">${prop.value}</string>`
       }
-    }).join('\n');
-    // return `:root {\n${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`
+    }).join('\n')}\n</resources>\n`;
   }
 });
 
@@ -57,23 +56,22 @@ StyleDictionaryPackage.registerFormat({
   name: 'ios-swift/any.swift',
   // name: 'css/variables',
   formatter (dictionary) {
-    return dictionary.allProperties.map(prop => {
+    return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
       if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          objectArray.push(`public static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
+          objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
         }
         return objectArray.map(p => {
           return p
         }).join('\n');
       } else {
-        return `public static let ${prop.name} = ${prop.value}`
+        return `\tpublic static let ${prop.name} = ${prop.value}`
       }
-    }).join('\n');
-    // return `:root {\n${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`
+    }).join('\n')}\n}`;
   }
 });
 
