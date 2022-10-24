@@ -52,6 +52,31 @@ StyleDictionaryPackage.registerFormat({
   }
 });
 
+// ios
+StyleDictionaryPackage.registerFormat({
+  name: 'ios-swift/any.swift',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return dictionary.allProperties.map(prop => {
+      if(prop.value instanceof Object) {
+        const objectArray = [];
+        const {entries} = Object;
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of entries(prop.value)) {
+          // eslint-disable-next-line no-restricted-globals
+          objectArray.push(`public static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
+        }
+        return objectArray.map(p => {
+          return p
+        }).join('\n');
+      } else {
+        return `public static let ${prop.name} = ${prop.value}`
+      }
+    }).join('\n');
+    // return `:root {\n${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`
+  }
+});
+
 function getStyleDictionaryConfig(platform) {
   return {
     "source": [
