@@ -39,12 +39,14 @@ StyleDictionaryPackage.registerFormat({
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};`);
+          objectArray.push(`<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value}</string>`);
         }
-        return `<string name="${prop.name}">${objectArray}</string>\n`;
-      }
+        return objectArray.map(p => {
+          return p
+        }).join('\n');
+      } else {
         return `<string name="${prop.name}">${prop.value}</string>`
-
+      }
     }).join('\n');
     // return `:root {\n${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`
   }
