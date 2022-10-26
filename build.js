@@ -8,7 +8,9 @@ StyleDictionaryPackage.registerFormat({
   // name: 'css/variables',
   formatter (dictionary) {
     return dictionary.allProperties.map(prop => {
-      if(prop.value instanceof Object) {
+      if (prop.type == "fontSizes") {
+        return `$${prop.name}: ${prop.value}px;`
+      } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
