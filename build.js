@@ -68,12 +68,14 @@ StyleDictionaryPackage.registerFormat({
       const rFixed = (r / 255.0).toFixed(3);
       const gFixed = (g / 255.0).toFixed(3);
       const bFixed = (b / 255.0).toFixed(3);
+      
       return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})`;
     } else if(prop.type === "fontSizes") {
       const val = parseFloat(prop.value);
       const baseFont = 16;
       
       if (isNaN(val)) throwSizeError(prop.name, prop.value, 'CGFloat');
+      
       return `\tpublic static let ${prop.name} = CGFloat(${(val * baseFont).toFixed(2)})`;
     } else if(prop.type === "fontFamily" || prop.type === "fontFamilies") {
       return `\tpublic static let ${prop.name} = "${prop.value}"`;
@@ -83,8 +85,13 @@ StyleDictionaryPackage.registerFormat({
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
+          if (key === "fontFamily") {
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"`);
+          } else {
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
+          }
         }
+      
         return objectArray.map(p => {
           return p
         }).join('\n');
@@ -121,7 +128,7 @@ function getStyleDictionaryConfig(platform) {
         "transformGroup": "ios-swift",
         "buildPath": `build/ios-swift/`,
         "files": [{
-          "destination": "StyleDictionary.swift",
+          "destination": "tokens.swift",
           "format": "ios-swift/any.swift",
           "className": "StyleDictionaryClass"
         }]

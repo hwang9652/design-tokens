@@ -1,12 +1,34 @@
 $ref-140: 140%;
 $ref-150: 150%;
 $ref-160: 160%;
-$ref-notosans: Noto Sans CJK KR;
+$ref-black: #111111;
+$ref-white: #ffffff;
+$ref-gray-100: #ececec;
+$ref-gray-200: #d8d8d8;
+$ref-gray-300: #c5c5c5;
+$ref-gray-400: #b1b1b1;
+$ref-gray-500: #9e9e9e;
+$ref-gray-600: #7e7e7e;
+$ref-gray-700: #5f5f5f;
+$ref-gray-800: #3f3f3f;
+$ref-gray-900: #202020;
+$ref-coral-100: #fce1de;
+$ref-coral-200: #f9c2be;
+$ref-coral-300: #f5a49d;
+$ref-coral-400: #f2857d;
+$ref-coral-500: #ef675c;
+$ref-coral-600: #bf524a;
+$ref-coral-700: #8f3e37;
+$ref-coral-800: #602925;
+$ref-coral-900: #301512;
+$ref-noto-sans: Noto Sans CJK KR;
 $ref-regular: Regular;
 $ref-bold: Bold;
-$ref-heading-font-size-xl: 20.25;
-$ref-heading-font-size-xxl: 22.5;
-$ref-heading-font-size-xxxl: 27;
+$ref-heading-font-size-m: 16;
+$ref-heading-font-size-l: 18;
+$ref-heading-font-size-xl: 24;
+$ref-heading-font-size-xxl: 28;
+$ref-heading-font-size-xxxl: 36;
 $ref-body-font-size-s: 14;
 $ref-body-font-size-m: 16;
 $ref-body-font-size-l: 18;
@@ -18,17 +40,24 @@ $ref-detail-font-size-s: 14;
 $ref-detail-font-size-m: 16;
 $ref-detail-font-size-l: 18;
 $ref-detail-font-size-xl: 20;
-$ref-font-defult: 10;
-$ref-black: #000000;
-$ref-white: #ffffff;
-$sys-heading-font-size-xxxl-font-family: Noto Sans CJK KR;
-$sys-heading-font-size-xxxl-font-weight: Bold;
-$sys-heading-font-size-xxxl-line-height: 140%;
-$sys-heading-font-size-xxxl-font-size: 27;
-$sys-heading-font-size-xl-font-family: Noto Sans CJK KR;
-$sys-heading-font-size-xl-font-weight: Bold;
-$sys-heading-font-size-xl-line-height: 140%;
-$sys-heading-font-size-xl-font-size: 20.25;
-$sys-pra-black: #000000;
-$sys-pra-white: #ffffff;
-$font-scale: 1.125;
+%sys-heading-font-size-xxxl {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	line-height: 140%;
+	font-size: 36px;
+}
+%sys-heading-font-size-xl {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	line-height: 140%;
+	font-size: 24px;
+}
+%sys-heading-font-size-l {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	line-height: 140%;
+	font-size: 18px;
+}
+$sys-primary-default: #ef675c;
+$sys-primary-white: #ffffff;
+$sys-primary-black: #111111;
