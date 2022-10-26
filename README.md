@@ -1,11 +1,22 @@
-## CJONSTYLE Design Tokens
+# figma Tokens
 
-# INSTALL
-```
-npm run build
+style-dictionary builder 
+
+## build tokens - platform
+- android
+  - xml
+- ios
+  - swift
+- web
+  - scss
+### INSTALL
+
+```bash
+npm install
 ```
 
-# BUILD
-```
+### BUILD
+
+```bash
 npm run build
 ```
