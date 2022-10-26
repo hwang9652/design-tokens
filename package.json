@@ -8,9 +8,7 @@
     "properties"
   ],
   "scripts": {
-      "build-transform-color": "npx token-transformer data/tokens.json tokens/color.json color",
-      "build-transform-size": "npx token-transformer data/tokens.json tokens/size.json size",
-      "build-transform": "npm run build-transform-color && npm run build-transform-size",
+      "build-transform": "npx token-transformer data/tokens.json tokens/tokens.json celebshop",
       "build-sd": "node build.js",
       "build": "npm run build-transform && npm run build-sd"
   },

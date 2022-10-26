@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+	<string name="ref_140">140%</string>
+	<string name="ref_150">150%</string>
+	<string name="ref_160">160%</string>
+	<string name="ref_notosans">Noto Sans CJK KR</string>
+	<string name="ref_regular">Regular</string>
+	<string name="ref_bold">Bold</string>
+	<string name="ref_heading_font_size_xl">20.25</string>
+	<string name="ref_heading_font_size_xxl">22.5</string>
+	<string name="ref_heading_font_size_xxxl">27</string>
+	<string name="ref_body_font_size_s">14</string>
+	<string name="ref_body_font_size_m">16</string>
+	<string name="ref_body_font_size_l">18</string>
+	<string name="ref_body_font_size_xl">20</string>
+	<string name="ref_body_font_size_xxl">22</string>
+	<string name="ref_body_font_size_xxxl">24</string>
+	<string name="ref_detail_font_size_xs">12</string>
+	<string name="ref_detail_font_size_s">14</string>
+	<string name="ref_detail_font_size_m">16</string>
+	<string name="ref_detail_font_size_l">18</string>
+	<string name="ref_detail_font_size_xl">20</string>
+	<string name="ref_font_defult">10</string>
+	<string name="ref_black">#ff000000</string>
+	<string name="ref_white">#ffffffff</string>
+	<string name="sys_heading_font_size_xxxl_font_family">Noto Sans CJK KR</string>
+	<string name="sys_heading_font_size_xxxl_font_weight">Bold</string>
+	<string name="sys_heading_font_size_xxxl_line_height">140%</string>
+	<string name="sys_heading_font_size_xxxl_font_size">27</string>
+	<string name="sys_heading_font_size_xl_font_family">Noto Sans CJK KR</string>
+	<string name="sys_heading_font_size_xl_font_weight">Bold</string>
+	<string name="sys_heading_font_size_xl_line_height">140%</string>
+	<string name="sys_heading_font_size_xl_font_size">20.25</string>
+	<string name="sys_pra_black">#ff000000</string>
+	<string name="sys_pra_white">#ffffffff</string>
+	<string name="font_scale">1.125</string>
+</resources>

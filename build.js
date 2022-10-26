@@ -1,3 +1,5 @@
+
+var Color = require('tinycolor2')
 const StyleDictionaryPackage = require('style-dictionary');
 
 // web
@@ -33,7 +35,10 @@ StyleDictionaryPackage.registerFormat({
   // name: 'css/variables',
   formatter (dictionary) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
-      if(prop.value instanceof Object) {
+      if(prop.type === "color") {
+        var str = Color(prop.value).toHex8();
+        return `\t<string name="${prop.name}">#${str.slice(6)}${str.slice(0,6)}</string>`
+      } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
@@ -57,7 +62,22 @@ StyleDictionaryPackage.registerFormat({
   // name: 'css/variables',
   formatter (dictionary) {
     return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
-      if(prop.value instanceof Object) {
+
+    if(prop.type === "color") {
+      const { r, g, b, a } = Color(prop.value).toRgb();
+      const rFixed = (r / 255.0).toFixed(3);
+      const gFixed = (g / 255.0).toFixed(3);
+      const bFixed = (b / 255.0).toFixed(3);
+      return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})`;
+    } else if(prop.type === "fontSizes") {
+      const val = parseFloat(prop.value);
+      const baseFont = 16;
+      
+      if (isNaN(val)) throwSizeError(prop.name, prop.value, 'CGFloat');
+      return `\tpublic static let ${prop.name} = CGFloat(${(val * baseFont).toFixed(2)})`;
+    } else if(prop.type === "fontFamily" || prop.type === "fontFamilies") {
+      return `\tpublic static let ${prop.name} = "${prop.value}"`;
+    } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
