@@ -70,13 +70,18 @@ StyleDictionaryPackage.registerFormat({
       const bFixed = (b / 255.0).toFixed(3);
       
       return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})`;
-    } else if(prop.type === "fontSizes") {
+    } else if(prop.type === "lineHeights") {
+        const val = parseFloat(prop.value);
+
+        return `\tpublic static let ${prop.name} = ${val/100}`;
+    /*} else if(prop.type === "fontSizes") {
       const val = parseFloat(prop.value);
       const baseFont = 16;
       
       if (isNaN(val)) throwSizeError(prop.name, prop.value, 'CGFloat');
       
       return `\tpublic static let ${prop.name} = CGFloat(${(val * baseFont).toFixed(2)})`;
+    */
     } else if(prop.type === "fontFamily" || prop.type === "fontFamilies") {
       return `\tpublic static let ${prop.name} = "${prop.value}"`;
     } else if(prop.value instanceof Object) {
@@ -87,6 +92,10 @@ StyleDictionaryPackage.registerFormat({
           // eslint-disable-next-line no-restricted-globals
           if (key === "fontFamily") {
             objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"`);
+          } else if (key === "lineHeight") {
+            const val = parseFloat(value);
+    
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
           } else {
             objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
           }
