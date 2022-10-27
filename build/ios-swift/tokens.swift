@@ -57,5 +57,5 @@ public class StyleDictionaryClass {
 	public static let sysHeadingFontSizeLfontSize = 18
 	public static let sysPrimaryDefault = UIColor(red: 0.937, green: 0.404, blue: 0.361, alpha: 1)
 	public static let sysPrimaryWhite = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
-	public static let sysPrimaryBlack = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+	public static let sysPrimaryBlack2 = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
 }
