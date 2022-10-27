@@ -24,39 +24,39 @@ $ref-coral-900: #301512;
 $ref-noto-sans: Noto Sans CJK KR;
 $ref-regular: Regular;
 $ref-bold: Bold;
-$ref-heading-font-size-m: 16px;
-$ref-heading-font-size-l: 18px;
-$ref-heading-font-size-xl: 24px;
-$ref-heading-font-size-xxl: 28px;
-$ref-heading-font-size-xxxl: 36px;
-$ref-body-font-size-s: 14px;
-$ref-body-font-size-m: 16px;
-$ref-body-font-size-l: 18px;
-$ref-body-font-size-xl: 20px;
-$ref-body-font-size-xxl: 22px;
-$ref-body-font-size-xxxl: 24px;
-$ref-detail-font-size-xs: 12px;
-$ref-detail-font-size-s: 14px;
-$ref-detail-font-size-m: 16px;
-$ref-detail-font-size-l: 18px;
-$ref-detail-font-size-xl: 20px;
+$ref-heading-font-size-m: 1.6rem;
+$ref-heading-font-size-l: 1.8rem;
+$ref-heading-font-size-xl: 2.4rem;
+$ref-heading-font-size-xxl: 2.8rem;
+$ref-heading-font-size-xxxl: 3.6rem;
+$ref-body-font-size-s: 1.4rem;
+$ref-body-font-size-m: 1.6rem;
+$ref-body-font-size-l: 1.8rem;
+$ref-body-font-size-xl: 2rem;
+$ref-body-font-size-xxl: 2.2rem;
+$ref-body-font-size-xxxl: 2.4rem;
+$ref-detail-font-size-xs: 1.2rem;
+$ref-detail-font-size-s: 1.4rem;
+$ref-detail-font-size-m: 1.6rem;
+$ref-detail-font-size-l: 1.8rem;
+$ref-detail-font-size-xl: 2rem;
 %sys-heading-font-size-xxxl {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
 	line-height: 140%;
-	font-size: 36px;
+	font-size: 3.6rem;
 }
 %sys-heading-font-size-xl {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
 	line-height: 140%;
-	font-size: 24px;
+	font-size: 2.4rem;
 }
 %sys-heading-font-size-l {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
 	line-height: 140%;
-	font-size: 18px;
+	font-size: 1.8rem;
 }
 $sys-primary-default: #ef675c;
 $sys-primary-white: #ffffff;

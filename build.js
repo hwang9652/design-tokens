@@ -9,7 +9,7 @@ StyleDictionaryPackage.registerFormat({
   formatter (dictionary) {
     return dictionary.allProperties.map(prop => {
       if (prop.type == "fontSizes") {
-        return `$${prop.name}: ${prop.value}px;`
+        return `$${prop.name}: ${prop.value/10}rem;`
       } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
@@ -19,7 +19,7 @@ StyleDictionaryPackage.registerFormat({
           if (isNaN(value)) {
             objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};`);
           } else {
-            objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value}px;`);
+            objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value/10}rem;`);
           }
         }
         return `%${prop.name} {\n${objectArray.join('\n')}\n}`;
@@ -37,7 +37,9 @@ StyleDictionaryPackage.registerFormat({
   // name: 'css/variables',
   formatter (dictionary) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
-      if(prop.type === "color") {
+      if (prop.type == "fontSizes") {
+        return `\t<string name="${prop.name}">${prop.value/10}</string>`
+      } else if(prop.type === "color") {
         var str = Color(prop.value).toHex8();
         return `\t<string name="${prop.name}">#${str.slice(6)}${str.slice(0,6)}</string>`
       } else if(prop.value instanceof Object) {
@@ -46,7 +48,7 @@ StyleDictionaryPackage.registerFormat({
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value}</string>`);
+          objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value/10}</string>`);
         }
         return objectArray.map(p => {
           return p
@@ -65,7 +67,9 @@ StyleDictionaryPackage.registerFormat({
   formatter (dictionary) {
     return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
 
-    if(prop.type === "color") {
+    if (prop.type == "fontSizes") {
+      return `\tpublic static let ${prop.name} = ${prop.value/10}`
+    } else if(prop.type === "color") {
       const { r, g, b, a } = Color(prop.value).toRgb();
       const rFixed = (r / 255.0).toFixed(3);
       const gFixed = (g / 255.0).toFixed(3);
