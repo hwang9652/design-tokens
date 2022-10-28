@@ -85,7 +85,7 @@ StyleDictionaryPackage.registerFormat({
   formatter (dictionary) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
       if (prop.type == "fontSizes") {
-        return `\t<string name="${prop.name}">${prop.value/10}</string>\n`
+        return `\t<string name="${prop.name}">${prop.value}dp</string>\n`
       } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
@@ -93,7 +93,7 @@ StyleDictionaryPackage.registerFormat({
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
           if (key === "fontSize") {
-            objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value/10}</string>\n`);
+            objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value}</string>\n`);
           }
         }
         return objectArray.map(p => {
@@ -117,7 +117,7 @@ StyleDictionaryPackage.registerFormat({
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
           if (key === "fontSize") {
-            objectArray.push(`\t\t<item name="android:textSize">${value/10}</item>`);
+            objectArray.push(`\t\t<item name="android:textSize">${value}dp</item>`);
           } else if(key === "fontWeight") {
             objectArray.push(`\t\t<item name="android:textStyle">${value}</item>`);
           } else if(key === "fontFamily") {
@@ -139,28 +139,20 @@ StyleDictionaryPackage.registerFormat({
     return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
 
     if (prop.type == "fontSizes") {
-      return `\tpublic static let ${prop.name} = ${prop.value/10}`
+      return `\tpublic static let ${prop.name} = ${prop.value}dp\n`
     } else if(prop.type === "color") {
       const { r, g, b, a } = Color(prop.value).toRgb();
       const rFixed = (r / 255.0).toFixed(3);
       const gFixed = (g / 255.0).toFixed(3);
       const bFixed = (b / 255.0).toFixed(3);
       
-      return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})`;
+      return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})\n`;
     } else if(prop.type === "lineHeights") {
         const val = parseFloat(prop.value);
 
-        return `\tpublic static let ${prop.name} = ${val/100}`;
-    /*} else if(prop.type === "fontSizes") {
-      const val = parseFloat(prop.value);
-      const baseFont = 16;
-      
-      if (isNaN(val)) throwSizeError(prop.name, prop.value, 'CGFloat');
-      
-      return `\tpublic static let ${prop.name} = CGFloat(${(val * baseFont).toFixed(2)})`;
-    */
+        // return `\tpublic static let ${prop.name} = ${val/100}`;
     } else if(prop.type === "fontFamily" || prop.type === "fontFamilies") {
-      return `\tpublic static let ${prop.name} = "${prop.value}"`;
+      return `\tpublic static let ${prop.name} = "${prop.value}"\n`;
     } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
@@ -168,25 +160,25 @@ StyleDictionaryPackage.registerFormat({
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
           if (key === "fontFamily") {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"`);
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"\n`);
           } else if (key === "lineHeight") {
             const val = parseFloat(value);
     
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
+            // objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
           } else if (key === "fontSize") {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value/10}`);
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}dp\n`);
           } else {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}`);
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}\n`);
           }
         }
       
         return objectArray.map(p => {
           return p
-        }).join('\n');
+        }).join('');
       } else {
-        return `\tpublic static let ${prop.name} = ${prop.value}`
+        return `\tpublic static let ${prop.name} = ${prop.value}\n`
       }
-    }).join('\n')}\n}`;
+    }).join('')}}`;
   }
 });
 
@@ -216,7 +208,7 @@ StyleDictionaryPackage.registerFormat({
     return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
 
     if (prop.type == "fontSizes") {
-      return `\tpublic static let ${prop.name} = ${prop.value/10}\n`;
+      return `\tpublic static let ${prop.name} = ${prop.value}dp\n`;
     } else if(prop.type === "lineHeights") {
         const val = parseFloat(prop.value);
 
@@ -232,7 +224,7 @@ StyleDictionaryPackage.registerFormat({
     
             objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}\n`);
           } else if (key === "fontSize") {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value/10}\n`);
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}dp\n`);
           }
         }
       
@@ -262,18 +254,19 @@ function getStyleDictionaryConfig(platform) {
         "transformGroup": "android",
         "buildPath": `build/android/`,
         "files": [{
+          "destination": "color.xml",
+          "format": "android/color",
+        },{
+          "destination": "styles.xml",
+          "format": "android/font",
+        }
+        /*,{
           "destination": "tokens.xml",
           "format": "android/resources",
         },{
-          "destination": "tokens-color.xml",
-          "format": "android/color",
-        },{
           "destination": "tokens-size.xml",
           "format": "android/size",
-        },{
-          "destination": "tokens-font.xml",
-          "format": "android/font",
-        }]
+        }*/]
       },
       "ios-swift": {
         "transformGroup": "ios-swift",
@@ -281,13 +274,15 @@ function getStyleDictionaryConfig(platform) {
         "files": [{
           "destination": "tokens.swift",
           "format": "ios-swift/any.swift"
-        },{
+        }
+        /*,{
           "destination": "tokens-color.swift",
           "format": "ios-swift/color.swift",
         },{
           "destination": "tokens-size.swift",
           "format": "ios-swift/size.swift",
-        }]
+        }
+      */]
       }
     }
   };
