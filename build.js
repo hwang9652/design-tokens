@@ -60,7 +60,47 @@ StyleDictionaryPackage.registerFormat({
       } else {
         return `\t<string name="${prop.name}">${prop.value}</string>`
       }
-    }).join('\n')}\n</resources>\n`;
+    }).join('\n')}\n</resources>`;
+  }
+});
+
+// android - color
+StyleDictionaryPackage.registerFormat({
+  name: 'android/color',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
+      if(prop.type === "color") {
+        var str = Color(prop.value).toHex8();
+        return `\t<string name="${prop.name}">#${str.slice(6)}${str.slice(0,6)}</string>\n`
+      }
+    }).join('')}</resources>`;
+  }
+});
+
+// android - size
+StyleDictionaryPackage.registerFormat({
+  name: 'android/size',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
+      if (prop.type == "fontSizes") {
+        return `\t<string name="${prop.name}">${prop.value/10}</string>\n`
+      } else if(prop.value instanceof Object) {
+        const objectArray = [];
+        const {entries} = Object;
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of entries(prop.value)) {
+          // eslint-disable-next-line no-restricted-globals
+          if (key === "fontSize") {
+            objectArray.push(`\t<string name="${prop.name}-${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}">${value/10}</string>\n`);
+          }
+        }
+        return objectArray.map(p => {
+          return p
+        }).join('\n');
+      }
+    }).join('')}</resources>`;
   }
 });
 
@@ -123,6 +163,60 @@ StyleDictionaryPackage.registerFormat({
   }
 });
 
+// ios - color
+StyleDictionaryPackage.registerFormat({
+  name: 'ios-swift/color.swift',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
+      if(prop.type === "color") {
+        const { r, g, b, a } = Color(prop.value).toRgb();
+        const rFixed = (r / 255.0).toFixed(3);
+        const gFixed = (g / 255.0).toFixed(3);
+        const bFixed = (b / 255.0).toFixed(3);
+        
+        return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})\n`;
+      }
+    }).join('')}}`;
+  }
+});
+
+// ios - size
+StyleDictionaryPackage.registerFormat({
+  name: 'ios-swift/size.swift',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
+
+    if (prop.type == "fontSizes") {
+      return `\tpublic static let ${prop.name} = ${prop.value/10}\n`;
+    } else if(prop.type === "lineHeights") {
+        const val = parseFloat(prop.value);
+
+        return `\tpublic static let ${prop.name} = ${val/100}\n`;
+    } else if(prop.value instanceof Object) {
+        const objectArray = [];
+        const {entries} = Object;
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of entries(prop.value)) {
+          // eslint-disable-next-line no-restricted-globals
+          if (key === "lineHeight") {
+            const val = parseFloat(value);
+    
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}\n`);
+          } else if (key === "fontSize") {
+            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value/10}\n`);
+          }
+        }
+      
+        return objectArray.map(p => {
+          return p
+        }).join('');
+      }
+    }).join('')}}`;
+  }
+});
+
 function getStyleDictionaryConfig(platform) {
   return {
     "source": [
@@ -143,6 +237,12 @@ function getStyleDictionaryConfig(platform) {
         "files": [{
           "destination": "tokens.xml",
           "format": "android/resources",
+        },{
+          "destination": "tokens-color.xml",
+          "format": "android/color",
+        },{
+          "destination": "tokens-size.xml",
+          "format": "android/size",
         }]
       },
       "ios-swift": {
@@ -150,8 +250,13 @@ function getStyleDictionaryConfig(platform) {
         "buildPath": `build/ios-swift/`,
         "files": [{
           "destination": "tokens.swift",
-          "format": "ios-swift/any.swift",
-          "className": "StyleDictionaryClass"
+          "format": "ios-swift/any.swift"
+        },{
+          "destination": "tokens-color.swift",
+          "format": "ios-swift/color.swift",
+        },{
+          "destination": "tokens-size.swift",
+          "format": "ios-swift/size.swift",
         }]
       }
     }

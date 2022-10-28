@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+	<string name="ref_heading_font_size_m">1.6</string>
+	<string name="ref_heading_font_size_l">1.8</string>
+	<string name="ref_heading_font_size_xl">2.4</string>
+	<string name="ref_heading_font_size_xxl">2.8</string>
+	<string name="ref_heading_font_size_xxxl">3.6</string>
+	<string name="ref_body_font_size_s">1.4</string>
+	<string name="ref_body_font_size_m">1.6</string>
+	<string name="ref_body_font_size_l">1.8</string>
+	<string name="ref_body_font_size_xl">2</string>
+	<string name="ref_body_font_size_xxl">2.2</string>
+	<string name="ref_body_font_size_xxxl">2.4</string>
+	<string name="ref_detail_font_size_xs">1.2</string>
+	<string name="ref_detail_font_size_s">1.4</string>
+	<string name="ref_detail_font_size_m">1.6</string>
+	<string name="ref_detail_font_size_l">1.8</string>
+	<string name="ref_detail_font_size_xl">2</string>
+	<string name="sys_heading_font_size_xxxl-font-size">3.6</string>
+	<string name="sys_heading_font_size_xl-font-size">2.4</string>
+	<string name="sys_heading_font_size_l-font-size">1.8</string>
+</resources>
