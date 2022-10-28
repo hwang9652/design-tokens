@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+	<style name="sys_heading_font_size_xxxl">
+		<item name="android:fontFamily">Noto Sans CJK KR</item>
+		<item name="android:textStyle">Bold</item>
+		<item name="android:textSize">3.6</item>
+	</style>
+	<style name="sys_heading_font_size_xl">
+		<item name="android:fontFamily">Noto Sans CJK KR</item>
+		<item name="android:textStyle">Bold</item>
+		<item name="android:textSize">2.4</item>
+	</style>
+	<style name="sys_heading_font_size_l">
+		<item name="android:fontFamily">Noto Sans CJK KR</item>
+		<item name="android:textStyle">Bold</item>
+		<item name="android:textSize">1.8</item>
+	</style>
+</resources>

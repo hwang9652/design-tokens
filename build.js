@@ -72,7 +72,7 @@ StyleDictionaryPackage.registerFormat({
     return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
       if(prop.type === "color") {
         var str = Color(prop.value).toHex8();
-        return `\t<string name="${prop.name}">#${str.slice(6)}${str.slice(0,6)}</string>\n`
+        return `\t<color name="${prop.name}">#${str.slice(6)}${str.slice(0,6)}</color>\n`
       }
     }).join('')}</resources>`;
   }
@@ -99,6 +99,33 @@ StyleDictionaryPackage.registerFormat({
         return objectArray.map(p => {
           return p
         }).join('\n');
+      }
+    }).join('')}</resources>`;
+  }
+});
+
+// android - font
+StyleDictionaryPackage.registerFormat({
+  name: 'android/font',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `<?xml version="1.0" encoding="UTF-8"?>\n\n<resources>\n${dictionary.allProperties.map(prop => {
+      if(prop.type == "typography") {
+        const objectArray = [];
+        const {entries} = Object;
+        // eslint-disable-next-line no-restricted-syntax
+        for (const [key, value] of entries(prop.value)) {
+          // eslint-disable-next-line no-restricted-globals
+          if (key === "fontSize") {
+            objectArray.push(`\t\t<item name="android:textSize">${value/10}</item>`);
+          } else if(key === "fontWeight") {
+            objectArray.push(`\t\t<item name="android:textStyle">${value}</item>`);
+          } else if(key === "fontFamily") {
+            objectArray.push(`\t\t<item name="android:${key}">${value}</item>`);
+          }
+        }
+
+        return `\t<style name="${prop.name}">\n${objectArray.join('\n')}\n\t</style>\n`;
       }
     }).join('')}</resources>`;
   }
@@ -243,6 +270,9 @@ function getStyleDictionaryConfig(platform) {
         },{
           "destination": "tokens-size.xml",
           "format": "android/size",
+        },{
+          "destination": "tokens-font.xml",
+          "format": "android/font",
         }]
       },
       "ios-swift": {
