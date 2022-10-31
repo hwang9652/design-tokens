@@ -21,7 +21,7 @@ style-dictionary build
 
 - ios
   - swift
-    - tockens.swift
+    - tokens.swift
     ```swift
       // color
       public static let refBlack = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
@@ -33,7 +33,7 @@ style-dictionary build
     ```
 - web
   - scss
-    - tockens.scss
+    - tokens.scss
     ```scss
     // color
     $ref-black: #111111;
