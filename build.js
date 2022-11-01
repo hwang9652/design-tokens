@@ -146,14 +146,7 @@ function getStyleDictionaryConfig(platform) {
         },{
           "destination": "styles.xml",
           "format": "android/font",
-        }
-        /*,{
-          "destination": "tokens.xml",
-          "format": "android/resources",
-        },{
-          "destination": "tokens-size.xml",
-          "format": "android/size",
-        }*/]
+        }]
       },
       "ios-swift": {
         "transformGroup": "ios-swift",
@@ -161,15 +154,7 @@ function getStyleDictionaryConfig(platform) {
         "files": [{
           "destination": "tokens.swift",
           "format": "ios-swift/any.swift"
-        }
-        /*,{
-          "destination": "tokens-color.swift",
-          "format": "ios-swift/color.swift",
-        },{
-          "destination": "tokens-size.swift",
-          "format": "ios-swift/size.swift",
-        }
-      */]
+        }]
       }
     }
   };
