@@ -8,7 +8,12 @@ StyleDictionaryPackage.registerFormat({
   formatter (dictionary) {
     return dictionary.allProperties.map(prop => {
       if(prop.type === "color") {
-        return `$${prop.name}: ${prop.value};\n`
+        if(prop.value.length > 8) {
+          const { r, g, b, a } = Color(prop.value).toRgb();
+          return `$${prop.name}: rgba(${r}, ${g}, ${b}, ${a});\n`
+        } else {
+          return `$${prop.name}: ${prop.value};\n`
+        }
       }
     }).join('');
   }
@@ -75,7 +80,9 @@ StyleDictionaryPackage.registerFormat({
           if (key === "fontSize") {
             objectArray.push(`\t\t<item name="android:textSize">${value}dp</item>`);
           } else if(key === "fontWeight") {
-            objectArray.push(`\t\t<item name="android:textStyle">${value}</item>`);
+            if (value !== "Regular") {
+              objectArray.push(`\t\t<item name="android:textStyle">${value.toLowerCase()}</item>`);
+            }
           } else if(key === "fontFamily") {
             objectArray.push(`\t\t<item name="android:${key}">${value}</item>`);
           }

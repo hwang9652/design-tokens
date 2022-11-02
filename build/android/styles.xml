@@ -3,192 +3,170 @@
 <resources>
 	<style name="sys_noto_headline_xlarge_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">28dp</item>
 	</style>
 	<style name="sys_noto_headline_large_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">24dp</item>
 	</style>
 	<style name="sys_noto_headline_large">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">24dp</item>
 	</style>
 	<style name="sys_noto_headline_medium_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">20dp</item>
 	</style>
 	<style name="sys_noto_headline_medium">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">20dp</item>
 	</style>
 	<style name="sys_noto_headline_small_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_noto_content_xxlarge_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">18dp</item>
 	</style>
 	<style name="sys_noto_content_xlarge_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_noto_content_xlarge">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_noto_content_large_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 	<style name="sys_noto_content_large">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 	<style name="sys_noto_content_medium_bold">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">13dp</item>
 	</style>
 	<style name="sys_noto_content_medium">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">13dp</item>
 	</style>
 	<style name="sys_noto_content_small">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">12dp</item>
 	</style>
 	<style name="sys_noto_content_xsmall">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">11dp</item>
 	</style>
 	<style name="sys_noto_content_xxsmall">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">10dp</item>
 	</style>
 	<style name="sys_noto_caption_medium">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">12dp</item>
 	</style>
 	<style name="sys_noto_caption_small">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">11dp</item>
 	</style>
 	<style name="sys_noto_caption_xsmall">
 		<item name="android:fontFamily">Noto Sans CJK KR</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">10dp</item>
 	</style>
 	<style name="sys_roboto_headline_xlarge_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">28dp</item>
 	</style>
 	<style name="sys_roboto_headline_large_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">24dp</item>
 	</style>
 	<style name="sys_roboto_headline_large">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">24dp</item>
 	</style>
 	<style name="sys_roboto_headline_medium_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">20dp</item>
 	</style>
 	<style name="sys_roboto_headline_medium">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">20dp</item>
 	</style>
 	<style name="sys_roboto_headline_small_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_roboto_content_xxlarge_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">18dp</item>
 	</style>
 	<style name="sys_roboto_content_xlarge_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_roboto_content_xlarge">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">16dp</item>
 	</style>
 	<style name="sys_roboto_content_large_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 	<style name="sys_roboto_content_large">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 	<style name="sys_roboto_content_medium_bold">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Bold</item>
+		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">13dp</item>
 	</style>
 	<style name="sys_roboto_content_medium">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">13dp</item>
 	</style>
 	<style name="sys_roboto_content_small">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">12dp</item>
 	</style>
 	<style name="sys_roboto_content_xsmall">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">11dp</item>
 	</style>
 	<style name="sys_roboto_content_xxsmall">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">10dp</item>
 	</style>
 	<style name="sys_roboto_caption_medium">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">12dp</item>
 	</style>
 	<style name="sys_roboto_caption_small">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">11dp</item>
 	</style>
 	<style name="sys_roboto_caption_xsmall">
 		<item name="android:fontFamily">Roboto</item>
-		<item name="android:textStyle">Regular</item>
 		<item name="android:textSize">10dp</item>
 	</style>
 </resources>
