@@ -1,21 +1,21 @@
 $ref-noto: Noto Sans CJK KR;
 $ref-regular: Regular;
-$ref-headline-small: 1.6rem;
-$ref-headline-medium: 2rem;
-$ref-headline-large: 2.4rem;
-$ref-headline-xlarge: 2.8rem;
+$ref-headline-small: 16px;
+$ref-headline-medium: 20px;
+$ref-headline-large: 24px;
+$ref-headline-xlarge: 28px;
 $ref-bold: Bold;
 $ref-roboto: Roboto;
-$ref-content-xxsmall: 1rem;
-$ref-content-xsmall: 1.1rem;
-$ref-content-small: 1.2rem;
-$ref-content-medium: 1.3rem;
-$ref-content-large: 1.4rem;
-$ref-content-xlarge: 1.6rem;
-$ref-content-xxlarge: 1.8rem;
-$ref-caption-xsmall: 1rem;
-$ref-caption-small: 1.1rem;
-$ref-caption-medium: 1.2rem;
+$ref-content-xxsmall: 10px;
+$ref-content-xsmall: 11px;
+$ref-content-small: 12px;
+$ref-content-medium: 13px;
+$ref-content-large: 14px;
+$ref-content-xlarge: 16px;
+$ref-content-xxlarge: 18px;
+$ref-caption-xsmall: 10px;
+$ref-caption-small: 11px;
+$ref-caption-medium: 12px;
 $ref-white: #ffffff;
 $ref-black: #111111;
 $ref-gray-50: #FAFAFA;
@@ -34,192 +34,192 @@ $ref-coral-500: #ef675c;
 %sys-noto-headline-xlarge-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 2.8rem;
+	font-size: 28px;
 }
 %sys-noto-headline-large-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 2.4rem;
+	font-size: 24px;
 }
 %sys-noto-headline-large {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 2.4rem;
+	font-size: 24px;
 }
 %sys-noto-headline-medium-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 2rem;
+	font-size: 20px;
 }
 %sys-noto-headline-medium {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 2rem;
+	font-size: 20px;
 }
 %sys-noto-headline-small-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-noto-content-xxlarge-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 1.8rem;
+	font-size: 18px;
 }
 %sys-noto-content-xlarge-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-noto-content-xlarge {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-noto-content-large-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 %sys-noto-content-large {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 %sys-noto-content-medium-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	font-size: 1.3rem;
+	font-size: 13px;
 }
 %sys-noto-content-medium {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.3rem;
+	font-size: 13px;
 }
 %sys-noto-content-small {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.2rem;
+	font-size: 12px;
 }
 %sys-noto-content-xsmall {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.1rem;
+	font-size: 11px;
 }
 %sys-noto-content-xxsmall {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1rem;
+	font-size: 10px;
 }
 %sys-noto-caption-medium {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.2rem;
+	font-size: 12px;
 }
 %sys-noto-caption-small {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1.1rem;
+	font-size: 11px;
 }
 %sys-noto-caption-xsmall {
 	font-family: Noto Sans CJK KR;
 	font-weight: Regular;
-	font-size: 1rem;
+	font-size: 10px;
 }
 %sys-roboto-headline-xlarge-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 2.8rem;
+	font-size: 28px;
 }
 %sys-roboto-headline-large-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 2.4rem;
+	font-size: 24px;
 }
 %sys-roboto-headline-large {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 2.4rem;
+	font-size: 24px;
 }
 %sys-roboto-headline-medium-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 2rem;
+	font-size: 20px;
 }
 %sys-roboto-headline-medium {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 2rem;
+	font-size: 20px;
 }
 %sys-roboto-headline-small-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-roboto-content-xxlarge-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 1.8rem;
+	font-size: 18px;
 }
 %sys-roboto-content-xlarge-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-roboto-content-xlarge {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 %sys-roboto-content-large-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 %sys-roboto-content-large {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 %sys-roboto-content-medium-bold {
 	font-family: Roboto;
 	font-weight: Bold;
-	font-size: 1.3rem;
+	font-size: 13px;
 }
 %sys-roboto-content-medium {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.3rem;
+	font-size: 13px;
 }
 %sys-roboto-content-small {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.2rem;
+	font-size: 12px;
 }
 %sys-roboto-content-xsmall {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.1rem;
+	font-size: 11px;
 }
 %sys-roboto-content-xxsmall {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1rem;
+	font-size: 10px;
 }
 %sys-roboto-caption-medium {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.2rem;
+	font-size: 12px;
 }
 %sys-roboto-caption-small {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1.1rem;
+	font-size: 11px;
 }
 %sys-roboto-caption-xsmall {
 	font-family: Roboto;
 	font-weight: Regular;
-	font-size: 1rem;
+	font-size: 10px;
 }
 $sys-text-primary: #111111;
 $sys-text-secondary: #4D4D4D;

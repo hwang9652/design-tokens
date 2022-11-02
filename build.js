@@ -9,7 +9,7 @@ StyleDictionaryPackage.registerFormat({
   formatter (dictionary) {
     return dictionary.allProperties.map(prop => {
       if (prop.type == "fontSizes") {
-        return `$${prop.name}: ${prop.value/10}rem;`
+        return `$${prop.name}: ${prop.value}px;`
       } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
@@ -20,7 +20,7 @@ StyleDictionaryPackage.registerFormat({
             if (isNaN(value)) {
             objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};`);
             } else {
-              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value/10}rem;`);
+              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value}px;`);
             }
           }
         }
