@@ -2,15 +2,30 @@
 var Color = require('tinycolor2')
 const StyleDictionaryPackage = require('style-dictionary');
 
-// web
+// web - color
 StyleDictionaryPackage.registerFormat({
-  name: 'scss/variables',
-  // name: 'css/variables',
+  name: 'scss/color',
   formatter (dictionary) {
     return dictionary.allProperties.map(prop => {
-      if (prop.type == "fontSizes") {
-        return `$${prop.name}: ${prop.value}px;`
-      } else if(prop.value instanceof Object) {
+      if(prop.type === "color") {
+        return `$${prop.name}: ${prop.value};\n`
+      }
+    }).join('');
+  }
+});
+
+// web - font
+StyleDictionaryPackage.registerFormat({
+  name: 'scss/font',
+  formatter (dictionary) {
+    return dictionary.allProperties.map(prop => {
+      if(prop.type.includes('font')) {
+        if (isNaN(prop.value)) {
+          return `$${prop.name}: ${prop.value};\n`
+        } else {
+          return `$${prop.name}: ${prop.value}px;\n`
+        }
+      } else if(prop.type == "typography") {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
@@ -18,18 +33,16 @@ StyleDictionaryPackage.registerFormat({
           // eslint-disable-next-line no-restricted-globals
           if (!value == "") {
             if (isNaN(value)) {
-            objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};`);
+              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};\n`);
             } else {
-              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value}px;`);
+              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value}px;\n`);
             }
           }
         }
-        return `%${prop.name} {\n${objectArray.join('\n')}\n}`;
-      }
-        return `$${prop.name}: ${prop.value};`
 
-    }).join('\n');
-    // return `:root {\n${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`
+        return `%${prop.name} {\n${objectArray.join('')}}\n`;
+      }
+    }).join('');
   }
 });
 
@@ -168,8 +181,11 @@ function getStyleDictionaryConfig(platform) {
         "transformGroup": "web",
         "buildPath": `build/web/`,
         "files": [{
-          "destination": "tokens.scss",
-          "format": "scss/variables"
+          "destination": "color.scss",
+          "format": "scss/color"
+        },{
+          "destination": "font.scss",
+          "format": "scss/font"
         }]
       },
       "android": {
