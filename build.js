@@ -16,10 +16,12 @@ StyleDictionaryPackage.registerFormat({
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
           // eslint-disable-next-line no-restricted-globals
-          if (isNaN(value)) {
+          if (!value == "") {
+            if (isNaN(value)) {
             objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value};`);
-          } else {
-            objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value/10}rem;`);
+            } else {
+              objectArray.push(`\t${StyleDictionaryPackage.transform['name/cti/kebab'].transformer({path:[key]},{ prefix: '' })}: ${value/10}rem;`);
+            }
           }
         }
         return `%${prop.name} {\n${objectArray.join('\n')}\n}`;
@@ -99,17 +101,19 @@ StyleDictionaryPackage.registerFormat({
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
         for (const [key, value] of entries(prop.value)) {
-          // eslint-disable-next-line no-restricted-globals
-          if (key === "fontFamily") {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"\n`);
-          } else if (key === "lineHeight") {
-            const val = parseFloat(value);
-    
-            // objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
-          } else if (key === "fontSize") {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}dp\n`);
-          } else {
-            objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}\n`);
+          if (!value == "") {
+            // eslint-disable-next-line no-restricted-globals
+            if (key === "fontFamily") {
+              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"\n`);
+            } else if (key === "lineHeight") {
+              const val = parseFloat(value);
+      
+              // objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
+            } else if (key === "fontSize") {
+              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}dp\n`);
+            } else {
+              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}\n`);
+            }
           }
         }
       

@@ -1,63 +1,241 @@
-$ref-140: 140%;
-$ref-150: 150%;
-$ref-160: 160%;
-$ref-black: #111111;
-$ref-white: #ffffff;
-$ref-gray-100: #ececec;
-$ref-gray-200: #d8d8d8;
-$ref-gray-300: #c5c5c5;
-$ref-gray-400: #b1b1b1;
-$ref-gray-500: #9e9e9e;
-$ref-gray-600: #7e7e7e;
-$ref-gray-700: #5f5f5f;
-$ref-gray-800: #3f3f3f;
-$ref-gray-900: #202020;
-$ref-coral-100: #fce1de;
-$ref-coral-200: #f9c2be;
-$ref-coral-300: #f5a49d;
-$ref-coral-400: #f2857d;
-$ref-coral-500: #ef675c;
-$ref-coral-600: #bf524a;
-$ref-coral-700: #8f3e37;
-$ref-coral-800: #602925;
-$ref-coral-900: #301512;
-$ref-noto-sans: Noto Sans CJK KR;
+$ref-noto: Noto Sans CJK KR;
 $ref-regular: Regular;
+$ref-headline-small: 1.6rem;
+$ref-headline-medium: 2rem;
+$ref-headline-large: 2.4rem;
+$ref-headline-xlarge: 2.8rem;
 $ref-bold: Bold;
-$ref-heading-font-size-m: 1.6rem;
-$ref-heading-font-size-l: 1.8rem;
-$ref-heading-font-size-xl: 2.4rem;
-$ref-heading-font-size-xxl: 2.8rem;
-$ref-heading-font-size-xxxl: 3.6rem;
-$ref-body-font-size-s: 1.4rem;
-$ref-body-font-size-m: 1.6rem;
-$ref-body-font-size-l: 1.8rem;
-$ref-body-font-size-xl: 2rem;
-$ref-body-font-size-xxl: 2.2rem;
-$ref-body-font-size-xxxl: 2.4rem;
-$ref-detail-font-size-xs: 1.2rem;
-$ref-detail-font-size-s: 1.4rem;
-$ref-detail-font-size-m: 1.6rem;
-$ref-detail-font-size-l: 1.8rem;
-$ref-detail-font-size-xl: 2rem;
-%sys-heading-font-size-xxxl {
+$ref-roboto: Roboto;
+$ref-content-xxsmall: 1rem;
+$ref-content-xsmall: 1.1rem;
+$ref-content-small: 1.2rem;
+$ref-content-medium: 1.3rem;
+$ref-content-large: 1.4rem;
+$ref-content-xlarge: 1.6rem;
+$ref-content-xxlarge: 1.8rem;
+$ref-caption-xsmall: 1rem;
+$ref-caption-small: 1.1rem;
+$ref-caption-medium: 1.2rem;
+$ref-white: #ffffff;
+$ref-black: #111111;
+$ref-gray-50: #FAFAFA;
+$ref-gray-100: #F0F0F0;
+$ref-gray-150: #F6F6F6;
+$ref-gray-200: #E6E6E6;
+$ref-gray-300: #D9D9D9;
+$ref-gray-400: #cccccc;
+$ref-gray-500: #959595;
+$ref-gray-600: #808080;
+$ref-gray-700: #666666;
+$ref-gray-800: #4D4D4D;
+$ref-gray-900: #333333;
+$ref-coral-200: #F9C2BE;
+$ref-coral-500: #ef675c;
+%sys-noto-headline-xlarge-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	line-height: 140%;
-	font-size: 3.6rem;
+	font-size: 2.8rem;
 }
-%sys-heading-font-size-xl {
+%sys-noto-headline-large-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	line-height: 140%;
 	font-size: 2.4rem;
 }
-%sys-heading-font-size-l {
+%sys-noto-headline-large {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 2.4rem;
+}
+%sys-noto-headline-medium-bold {
 	font-family: Noto Sans CJK KR;
 	font-weight: Bold;
-	line-height: 140%;
+	font-size: 2rem;
+}
+%sys-noto-headline-medium {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 2rem;
+}
+%sys-noto-headline-small-bold {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	font-size: 1.6rem;
+}
+%sys-noto-content-xxlarge-bold {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
 	font-size: 1.8rem;
 }
-$sys-primary-default: #ef675c;
-$sys-primary-white: #ffffff;
-$sys-primary-black2: #111111;
+%sys-noto-content-xlarge-bold {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	font-size: 1.6rem;
+}
+%sys-noto-content-xlarge {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.6rem;
+}
+%sys-noto-content-large-bold {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	font-size: 1.4rem;
+}
+%sys-noto-content-large {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.4rem;
+}
+%sys-noto-content-medium-bold {
+	font-family: Noto Sans CJK KR;
+	font-weight: Bold;
+	font-size: 1.3rem;
+}
+%sys-noto-content-medium {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.3rem;
+}
+%sys-noto-content-small {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.2rem;
+}
+%sys-noto-content-xsmall {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.1rem;
+}
+%sys-noto-content-xxsmall {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1rem;
+}
+%sys-noto-caption-medium {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.2rem;
+}
+%sys-noto-caption-small {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1.1rem;
+}
+%sys-noto-caption-xsmall {
+	font-family: Noto Sans CJK KR;
+	font-weight: Regular;
+	font-size: 1rem;
+}
+%sys-roboto-headline-xlarge-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 2.8rem;
+}
+%sys-roboto-headline-large-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 2.4rem;
+}
+%sys-roboto-headline-large {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 2.4rem;
+}
+%sys-roboto-headline-medium-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 2rem;
+}
+%sys-roboto-headline-medium {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 2rem;
+}
+%sys-roboto-headline-small-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 1.6rem;
+}
+%sys-roboto-content-xxlarge-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 1.8rem;
+}
+%sys-roboto-content-xlarge-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 1.6rem;
+}
+%sys-roboto-content-xlarge {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.6rem;
+}
+%sys-roboto-content-large-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 1.4rem;
+}
+%sys-roboto-content-large {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.4rem;
+}
+%sys-roboto-content-medium-bold {
+	font-family: Roboto;
+	font-weight: Bold;
+	font-size: 1.3rem;
+}
+%sys-roboto-content-medium {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.3rem;
+}
+%sys-roboto-content-small {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.2rem;
+}
+%sys-roboto-content-xsmall {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.1rem;
+}
+%sys-roboto-content-xxsmall {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1rem;
+}
+%sys-roboto-caption-medium {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.2rem;
+}
+%sys-roboto-caption-small {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1.1rem;
+}
+%sys-roboto-caption-xsmall {
+	font-family: Roboto;
+	font-weight: Regular;
+	font-size: 1rem;
+}
+$sys-text-primary: #111111;
+$sys-text-secondary: #4D4D4D;
+$sys-text-tertiary: #808080;
+$sys-text-quaternary: #959595;
+$sys-text-disabled: #D9D9D9;
+$sys-text-white: #ffffff;
+$sys-text-coral: #ef675c;
+$sys-background-primary: #F0F0F0;
+$sys-background-secondary: #FAFAFA;
+$sys-background-tertiary: #ffffff;
+$sys-background-quaternary: #111111;
+$sys-background-disabled: #F6F6F6;
+$sys-background-coral: #ef675c;
+$sys-background-coralsecon: #F9C2BE;
+$sys-border-primary: #111111;
+$sys-border-secondary: #E6E6E6;
+$sys-border-tertiary: #F0F0F0;
+$sys-opacity-primary: #11111166;
