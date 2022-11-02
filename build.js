@@ -76,56 +76,87 @@ StyleDictionaryPackage.registerFormat({
 
 // ios
 StyleDictionaryPackage.registerFormat({
-  name: 'ios-swift/any.swift',
+  name: 'ios-swift/color',
   // name: 'css/variables',
   formatter (dictionary) {
-    return `import UIKit\n\npublic class StyleDictionaryClass {\n${dictionary.allProperties.map(prop => {
+    return `import UIKit\n\npublic enum TokensColor {\n${dictionary.allProperties.map(prop => {
 
-    if (prop.type == "fontSizes") {
-      return `\tpublic static let ${prop.name} = ${prop.value}dp\n`
-    } else if(prop.type === "color") {
+	if(prop.type === "color") {
       const { r, g, b, a } = Color(prop.value).toRgb();
       const rFixed = (r / 255.0).toFixed(3);
       const gFixed = (g / 255.0).toFixed(3);
       const bFixed = (b / 255.0).toFixed(3);
       
-      return `\tpublic static let ${prop.name} = UIColor(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})\n`;
+      return `\tpublic static let ${prop.name} = #colorLiteral(red: ${rFixed}, green: ${gFixed}, blue: ${bFixed}, alpha: ${a})\n`;
+      }
+    }).join('')}}`;
+  }
+});
+
+StyleDictionaryPackage.registerFormat({
+  name: 'ios-swift/font',
+  // name: 'css/variables',
+  formatter (dictionary) {
+    return `import UIKit\n\npublic enum TokensFont {\n${dictionary.allProperties.map(prop => {
+
+
+	if(prop.type === "color" || prop.type === "fontFamilies" || prop.type === "fontWeights") {
+        //skip
+    } else if (prop.type == "fontSizes") {
+      return `\tpublic static let ${prop.name} = UIFont.systemFont(ofSize: ${prop.value})\n`
+    
+    } else if(prop.type === "fontFamilies") {
+
     } else if(prop.type === "lineHeights") {
         const val = parseFloat(prop.value);
 
         // return `\tpublic static let ${prop.name} = ${val/100}`;
-    } else if(prop.type === "fontFamily" || prop.type === "fontFamilies") {
-      return `\tpublic static let ${prop.name} = "${prop.value}"\n`;
     } else if(prop.value instanceof Object) {
         const objectArray = [];
         const {entries} = Object;
         // eslint-disable-next-line no-restricted-syntax
+        
+        var name = prop.name.replace("Noto", "")
+        
+        if (name.includes("Roboto")) {
+        	return ""
+        }
+        
+        var fontWeight = "Regular"
+        var fontSize = 0
+        
         for (const [key, value] of entries(prop.value)) {
           if (!value == "") {
             // eslint-disable-next-line no-restricted-globals
-            if (key === "fontFamily") {
-              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = "${value}"\n`);
-            } else if (key === "lineHeight") {
-              const val = parseFloat(value);
-      
-              // objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${val/100}`);
+            if (key === "fontFamily" || key === "lineHeight") {
+            	//skip
+            } else if (key === "fontWeight") {
+            	fontWeight = value
             } else if (key === "fontSize") {
-              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}dp\n`);
+            	fontSize = value
             } else {
-              objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}\n`);
+            	objectArray.push(`\tpublic static let ${prop.name}${StyleDictionaryPackage.transform['name/cti/camel'].transformer({path:[key]},{ prefix: '' })} = ${value}\n`);
             }
           }
         }
+      
+      if (fontWeight === "Regular") {
+      	return `\tpublic static let ${name} = UIFont.systemFont(ofSize: ${fontSize})\n`
+      } else if (fontWeight == "Bold") {
+      	return `\tpublic static let ${name} = UIFont.boldSystemFont(ofSize: ${fontSize})\n`
+      }
       
         return objectArray.map(p => {
           return p
         }).join('');
       } else {
-        return `\tpublic static let ${prop.name} = ${prop.value}\n`
+        return `\tpublic static let ${prop.name} = UIFont.systemFont(ofSize: ${prop.value})\n`
       }
     }).join('')}}`;
   }
 });
+
+
 
 function getStyleDictionaryConfig(platform) {
   return {
@@ -156,8 +187,11 @@ function getStyleDictionaryConfig(platform) {
         "transformGroup": "ios-swift",
         "buildPath": `build/ios-swift/`,
         "files": [{
-          "destination": "tokens.swift",
-          "format": "ios-swift/any.swift"
+          "destination": "TokenColors.swift",
+          "format": "ios-swift/color"
+        },{
+          "destination": "TokenFonts.swift",
+          "format": "ios-swift/font"
         }]
       }
     }
